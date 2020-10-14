@@ -71,6 +71,5 @@ void Get_Matrix(char **tab)
 int main(int argc, char *argv[])
 {   
     Get_Matrix(argv);
-   
     return 0;
 }
