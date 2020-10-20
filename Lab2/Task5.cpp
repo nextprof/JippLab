@@ -2,24 +2,32 @@
 
 using namespace std;
 
-void My_swap(double *a, double *b)
+template <typename T>
+void Myswap(T *a, T *b)
 {
-    double temp = *a;
+    T temp = *a;
     *a = *b;
     *b = temp;
 }
 
 int main()
 {
-    double a, b;
-    cout << "Podaj kolejno 2 liczby: " << endl;
-    cout << "a: ";
-    cin >> a;
-    cout << "b: ";
-    cin >> b;
+    double a = 15, b = 47;
+    string f = "first", s = "second";
 
-    My_swap(&a, &b);
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
 
-    cout << "a: " << a << "  b: " << b;
+    cout << "f: " << f << endl;
+    cout << "s: " << s << endl;
+
+    Myswap(&a, &b);
+    Myswap(&f, &s);
+
+    cout << "After swap:" << endl
+         << "a: " << a << endl
+         << "b: " << b << endl
+         << "f: " << f << endl
+         << "s: " << s << endl;
     return 0;
 }
