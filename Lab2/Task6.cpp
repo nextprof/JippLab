@@ -3,7 +3,7 @@
 using namespace std;
 
 template <typename T>
-void Myswap(T **r, T **s)
+void swap(T **r, T **s)
 {
     T *pSwap = *r;
     *r = *s;
@@ -27,8 +27,8 @@ int main()
          << "ptrs: " << *ptrs << endl
          << endl;
 
-    Myswap(&ptra, &ptrb);
-    Myswap(&ptrf, &ptrs);
+    swap(&ptra, &ptrb);
+    swap(&ptrf, &ptrs);
 
     cout << "After swap:" << endl
          << endl
