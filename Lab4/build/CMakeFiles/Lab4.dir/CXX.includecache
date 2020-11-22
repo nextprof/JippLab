@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab4/src/main.cpp
+iostream
+-
+cstring
+-
+fstream
+-
+string
+-
+matrix.hpp
+C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab4/src/matrix.hpp
+
+C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab4/src/matrix.cpp
+iostream
+-
+cstring
+-
+fstream
+-
+string
+-
+matrix.hpp
+C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab4/src/matrix.hpp
+
+C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab4/src/matrix.hpp
+iostream
+-
+cstring
+-
+fstream
+-
+string
+-
+
