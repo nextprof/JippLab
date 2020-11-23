@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+../include/matrix.hpp
+iostream
+-
+cstring
+-
+fstream
+-
+string
+-
+
 C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab4/src/main.cpp
 iostream
 -
@@ -29,14 +39,4 @@ string
 -
 matrix.hpp
 C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab4/src/matrix.hpp
-
-C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab4/src/matrix.hpp
-iostream
--
-cstring
--
-fstream
--
-string
--
 
