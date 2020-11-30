@@ -2,7 +2,7 @@
 #include <cstring>
 #include <fstream>
 #include <string>
-#include "matrix.hpp"
+#include <matrix.hpp>
 using namespace std;
 
 Matrix::Matrix(int r, int c)
