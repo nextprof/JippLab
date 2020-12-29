@@ -28,3 +28,19 @@ string
 matrix.hpp
 -
 
+C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab5/src/matrix.cpp
+iostream
+-
+cstring
+-
+fstream
+-
+string
+-
+matrix.hpp
+-
+exception
+-
+sstream
+-
+
