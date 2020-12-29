@@ -1,7 +1,5 @@
 #include <HRMS.hpp>
-
 using namespace std;
-
 void testExceptions()
 {
     HRMS systemTest;
