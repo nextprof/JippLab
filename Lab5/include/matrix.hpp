@@ -2,6 +2,8 @@
 #include <cstring>
 #include <fstream>
 #include <string>
+#include <sqlite3/sqlite3.h>
+#include <database.hpp>
 using namespace std;
 
 #ifndef MATRIX
@@ -28,6 +30,10 @@ public:
     int row();
 
     void store(string filename, string path);
+
+    void storeDb(sqlite3 *db, string name);
+
     Matrix(string filename, string path);
+    Matrix(sqlite3 *db, string name);
 };
 #endif

@@ -141,6 +141,60 @@ Lab5/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab5.dir\build.make CMakeFiles/Lab5.dir/build
 .PHONY : Lab5/fast
 
+libs/sqlite3/sqlite3.obj: libs/sqlite3/sqlite3.c.obj
+
+.PHONY : libs/sqlite3/sqlite3.obj
+
+# target to build an object file
+libs/sqlite3/sqlite3.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab5.dir\build.make CMakeFiles/Lab5.dir/libs/sqlite3/sqlite3.c.obj
+.PHONY : libs/sqlite3/sqlite3.c.obj
+
+libs/sqlite3/sqlite3.i: libs/sqlite3/sqlite3.c.i
+
+.PHONY : libs/sqlite3/sqlite3.i
+
+# target to preprocess a source file
+libs/sqlite3/sqlite3.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab5.dir\build.make CMakeFiles/Lab5.dir/libs/sqlite3/sqlite3.c.i
+.PHONY : libs/sqlite3/sqlite3.c.i
+
+libs/sqlite3/sqlite3.s: libs/sqlite3/sqlite3.c.s
+
+.PHONY : libs/sqlite3/sqlite3.s
+
+# target to generate assembly for a file
+libs/sqlite3/sqlite3.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab5.dir\build.make CMakeFiles/Lab5.dir/libs/sqlite3/sqlite3.c.s
+.PHONY : libs/sqlite3/sqlite3.c.s
+
+src/database.obj: src/database.cpp.obj
+
+.PHONY : src/database.obj
+
+# target to build an object file
+src/database.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab5.dir\build.make CMakeFiles/Lab5.dir/src/database.cpp.obj
+.PHONY : src/database.cpp.obj
+
+src/database.i: src/database.cpp.i
+
+.PHONY : src/database.i
+
+# target to preprocess a source file
+src/database.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab5.dir\build.make CMakeFiles/Lab5.dir/src/database.cpp.i
+.PHONY : src/database.cpp.i
+
+src/database.s: src/database.cpp.s
+
+.PHONY : src/database.s
+
+# target to generate assembly for a file
+src/database.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab5.dir\build.make CMakeFiles/Lab5.dir/src/database.cpp.s
+.PHONY : src/database.cpp.s
+
 src/main.obj: src/main.cpp.obj
 
 .PHONY : src/main.obj
@@ -204,6 +258,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Lab5
+	@echo ... libs/sqlite3/sqlite3.obj
+	@echo ... libs/sqlite3/sqlite3.i
+	@echo ... libs/sqlite3/sqlite3.s
+	@echo ... src/database.obj
+	@echo ... src/database.i
+	@echo ... src/database.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

@@ -3,10 +3,11 @@
 #include <fstream>
 #include <string>
 #include <matrix.hpp>
+#include <database.hpp>
 
 using namespace std;
 
-void testErrors()
+void testErrors(sqlite3 *db)
 {
      cout << endl
           << "--------Testing errors------------"
@@ -109,8 +110,17 @@ void testErrors()
      {
           cerr << "Error: " << e.what() << endl;
      }
+     try
+     {
+          cout << "Loading matrix which does not exist" << endl;
+          Matrix(db, "matrixOOPS");
+     }
+     catch (runtime_error &e)
+     {
+          cout << "Error: " << e.what() << endl;
+     }
 }
-void test()
+void test(sqlite3 *db)
 {
 
      cout << "One-argument constructor" << endl;
@@ -170,12 +180,32 @@ void test()
 
      m2.store("dane.txt", "C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab5");
      Matrix m7("dane.txt", "C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab5");
-     cout << "Store ->> read for file (m2)";
+     cout << "Store ->> read from file (m2)";
      m7.print();
+
+     Matrix m30(4, 5);
+
+     double xx = 1;
+     for (int i = 0; i < m1.row(); i++)
+     {
+          for (int j = 0; j < m1.cols(); j++)
+          {
+               m30.set(i, j, xx);
+               xx += 0.2;
+          }
+     }
+     m30.storeDb(db, "matrixnr1");
+     Matrix m31(db, "matrixnr1");
+     cout << "Stored ->> readed from db (m30)";
+     m30.print();
 }
 
 int main()
 {
-     test();
-     testErrors();
+     sqlite3 *db = createDB();
+     createTable(db);
+
+     test(db);
+
+     testErrors(db);
 }

@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../include/database.hpp
+sqlite3/sqlite3.h
+-
+vector
+-
+
 ../include/matrix.hpp
 iostream
 -
@@ -14,6 +20,14 @@ cstring
 fstream
 -
 string
+-
+sqlite3/sqlite3.h
+-
+database.hpp
+-
+
+../libs/sqlite3/sqlite3.h
+stdarg.h
 -
 
 C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab5/src/main.cpp
@@ -27,20 +41,6 @@ string
 -
 matrix.hpp
 -
-
-C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab5/src/matrix.cpp
-iostream
--
-cstring
--
-fstream
--
-string
--
-matrix.hpp
--
-exception
--
-sstream
+database.hpp
 -
 
