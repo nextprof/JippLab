@@ -119,6 +119,40 @@ void testErrors(sqlite3 *db)
      {
           cout << "Error: " << e.what() << endl;
      }
+
+     try
+     {
+          cout << "Trying to add matrixes with operator + with not same size" << endl;
+          Matrix m40(4, 4);
+          Matrix m41(5, 5);
+          Matrix m42 = m40 + m41;
+     }
+     catch (invalid_argument &e)
+     {
+          cout << "Error: " << e.what() << endl;
+     }
+
+     try
+     {
+          cout << "Trying to substract matrixes with operator - with not same size" << endl;
+          Matrix m43(4, 4);
+          Matrix m44(5, 5);
+          Matrix m45 = m43 - m44;
+     }
+     catch (invalid_argument &e)
+     {
+          cout << "Error: " << e.what() << endl;
+     }
+     try
+     {
+          cout << "Trying to store row with too high index with [] operator" << endl;
+          Matrix m46(4, 4);
+          double *testerr = m46[4];
+     }
+     catch (invalid_argument &e)
+     {
+          cout << "Error: " << e.what() << endl;
+     }
 }
 void test(sqlite3 *db)
 {
@@ -186,9 +220,9 @@ void test(sqlite3 *db)
      Matrix m30(4, 5);
 
      double xx = 1;
-     for (int i = 0; i < m1.row(); i++)
+     for (int i = 0; i < m30.row(); i++)
      {
-          for (int j = 0; j < m1.cols(); j++)
+          for (int j = 0; j < m30.cols(); j++)
           {
                m30.set(i, j, xx);
                xx += 0.2;
@@ -198,6 +232,71 @@ void test(sqlite3 *db)
      Matrix m31(db, "matrixnr1");
      cout << "Stored ->> readed from db (m30)";
      m30.print();
+
+     Matrix m32(4, 4);
+     for (int i = 0; i < m32.row(); i++)
+     {
+          for (int j = 0; j < m32.cols(); j++)
+          {
+               m32.set(i, j, xx);
+               xx += 0.2;
+          }
+     }
+     Matrix m33(4, 4);
+     for (int i = 0; i < m33.row(); i++)
+     {
+          for (int j = 0; j < m33.cols(); j++)
+          {
+               m33.set(i, j, xx);
+               xx += 0.2;
+          }
+     }
+
+     cout << "Testing operator +" << endl
+          << "first matrix:" << endl;
+     m32.print();
+     cout << "Second matrix: " << endl;
+     m33.print();
+     cout << "And result of addition" << endl;
+
+     Matrix m34 = m33 + m32;
+     m34.print();
+
+     Matrix m35(4, 4);
+     for (int i = 0; i < m35.row(); i++)
+     {
+          for (int j = 0; j < m35.cols(); j++)
+          {
+               m35.set(i, j, xx);
+               xx += 0.2;
+          }
+     }
+     Matrix m36(4, 4);
+     for (int i = 0; i < m36.row(); i++)
+     {
+          for (int j = 0; j < m36.cols(); j++)
+          {
+               m36.set(i, j, xx);
+               xx -= 0.2;
+          }
+     }
+     cout << endl
+          << "Testing operator -" << endl
+          << "first matrix:" << endl;
+     m35.print();
+     cout << "Second matrix: " << endl;
+     m36.print();
+     cout << "And result of substraction" << endl;
+
+     Matrix m37 = m35 - m36;
+     m37.print();
+     cout << "Testing operator []" << endl
+          << "Matrix:" << endl;
+     m35.print();
+     cout << "Trying to save matrix[2]-3rd row" << endl;
+     double *testoperator = m35[2];
+     for (int i = 0; i < m35.cols(); i++)
+          cout << testoperator[i] << " ";
 }
 
 int main()

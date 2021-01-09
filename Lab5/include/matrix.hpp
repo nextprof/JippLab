@@ -35,5 +35,9 @@ public:
 
     Matrix(string filename, string path);
     Matrix(sqlite3 *db, string name);
+
+    Matrix operator+(Matrix m2);
+    Matrix operator-(Matrix m2);
+    double *operator[](int nr);
 };
 #endif

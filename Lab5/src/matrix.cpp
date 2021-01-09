@@ -322,3 +322,63 @@ Matrix::Matrix(sqlite3 *db, string name)
         }
     }
 }
+
+Matrix Matrix::operator+(Matrix m2)
+{
+    if ((m2.rows != this->rows) || (m2.columns != this->columns))
+    {
+        stringstream errorMsg;
+        errorMsg << "Matrixes are not same size(add)"
+                 << "  Size of matrixes:  m1: " << this->rows << "," << this->columns << "   m2: " << m2.rows << "," << m2.columns;
+        throw invalid_argument(errorMsg.str());
+    }
+    int n = this->rows;
+    int m = this->columns;
+    Matrix newMatrix(n, m);
+
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            newMatrix.matrix[i][j] = this->matrix[i][j] + m2.matrix[i][j];
+
+    return newMatrix;
+}
+Matrix Matrix::operator-(Matrix m2)
+{
+    if ((m2.rows != this->rows) || (m2.columns != this->columns))
+    {
+        stringstream errorMsg;
+        errorMsg << "Matrixes are not same size(substrct)"
+                 << "  Size of matrixes:  m1: " << this->rows << "," << this->columns << "   m2: " << m2.rows << "," << m2.columns;
+        throw invalid_argument(errorMsg.str());
+    }
+    int n = this->rows;
+    int m = this->columns;
+    Matrix newMatrix(n, m);
+
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            newMatrix.matrix[i][j] = this->matrix[i][j] - m2.matrix[i][j];
+
+    return newMatrix;
+}
+double *Matrix::operator[](int nr)
+{
+    if (nr >= this->rows)
+    {
+        stringstream errorMsg;
+        errorMsg << "Number of matrix's rows are less than returned row" << endl;
+        errorMsg << "Argument: " << nr << endl;
+        errorMsg << "Number of matrix's rows: " << this->rows << endl
+                 << "[" << this->rows - 1 << "]"
+                 << "is the highest index" << endl;
+        throw invalid_argument(errorMsg.str());
+    }
+    else if (nr <= 0)
+    {
+        stringstream errorMsg;
+        errorMsg << "Number of recieved matrix should be greater than 0" << endl;
+        errorMsg << "Argument: " << nr << endl;
+        throw invalid_argument(errorMsg.str());
+    }
+    return this->matrix[nr];
+}
