@@ -30,11 +30,17 @@ database.hpp
 stdarg.h
 -
 
-C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab5/src/matrix.cpp
+C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab5/src/main.cpp
+iostream
+-
+cstring
+-
+fstream
+-
+string
+-
 matrix.hpp
 -
-exception
--
-sstream
+database.hpp
 -
 

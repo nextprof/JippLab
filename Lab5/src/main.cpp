@@ -297,6 +297,33 @@ void test(sqlite3 *db)
      double *testoperator = m35[2];
      for (int i = 0; i < m35.cols(); i++)
           cout << testoperator[i] << " ";
+
+     Matrix m38(3);
+     Matrix m39(3);
+     if (m38 == m39)
+          cout << "Rowne" << endl;
+     m39.set(1, 1, 1);
+     if (m38 == m39)
+          cout << "Rowne" << endl;
+
+     Matrix m40(5);
+     ofstream file;
+     file.open("C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab5/dane2.txt", ios_base::in);
+     file << m40;
+
+     cout << m40;
+     cout << "Adding to previous matrix 1 x2 (prefix,postfix)" << endl;
+     m40++;
+     ++m40;
+     cout << m40;
+     cout << "Checking that matrix is greater than 1" << endl;
+     if (m40 > 1)
+          cout
+              << "m40 greater than 1";
+
+     cout << "Checking that matrix is less than 3" << endl;
+     if (m40 < 3)
+          cout << "m40 less than 3" << endl;
 }
 
 int main()

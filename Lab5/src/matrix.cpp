@@ -382,3 +382,129 @@ double *Matrix::operator[](int nr)
     }
     return this->matrix[nr];
 }
+
+Matrix Matrix::operator*(Matrix m2)
+{
+    if (columns != m2.rows)
+    {
+        stringstream errorMsg;
+        errorMsg << "Matrix's columns are not equal to matrix-argument's rows(multiply)"
+                 << "  Size of matrixes:  m1: " << this->rows << "," << this->columns << "   m2: " << m2.rows << "," << m2.columns;
+        throw invalid_argument(errorMsg.str());
+    }
+    Matrix NewMatrix(rows, m2.columns);
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < m2.columns; j++)
+        {
+            double s = 0;
+            for (int k = 0; k < m2.rows; k++)
+            {
+                s += (matrix[i][k] * m2.matrix[k][j]);
+            }
+            NewMatrix.matrix[i][j] = s;
+        }
+    }
+    return NewMatrix;
+}
+bool Matrix::operator==(Matrix m2)
+{
+    if ((m2.rows != this->rows) || (m2.columns != this->columns))
+    {
+        stringstream errorMsg;
+        errorMsg << "Matrixes are not same size(COMPARE ==)"
+                 << "  Size of matrixes:  m1: " << this->rows << "," << this->columns << "   m2: " << m2.rows << "," << m2.columns;
+        throw invalid_argument(errorMsg.str());
+    }
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < columns; j++)
+            if (matrix[i][j] != m2.matrix[i][j])
+                return false;
+
+    return true;
+}
+ostream &operator<<(ostream &out, Matrix m)
+{
+    out << m.cols() << " " << m.row() << endl;
+    for (int i = 0; i < m.cols(); i++)
+    {
+        for (int j = 0; j < m.row(); j++)
+            out << m.get(i, j) << ' ';
+        out << endl;
+    }
+    return out;
+}
+void Matrix::operator++(int)
+{
+    for (int i = 0; i < this->rows; i++)
+    {
+        for (int j = 0; j < this->columns; j++)
+        {
+            matrix[i][j]++;
+        }
+    }
+}
+
+void Matrix::operator++()
+{
+    for (int i = 0; i < this->rows; i++)
+    {
+        for (int j = 0; j < this->columns; j++)
+        {
+            matrix[i][j]++;
+        }
+    }
+}
+
+void Matrix::operator--(int)
+{
+    for (int i = 0; i < this->rows; i++)
+    {
+        for (int j = 0; j < this->columns; j++)
+        {
+            matrix[i][j]--;
+        }
+    }
+}
+
+void Matrix::operator--()
+{
+    for (int i = 0; i < this->rows; i++)
+    {
+        for (int j = 0; j < this->columns; j++)
+        {
+            matrix[i][j]--;
+        }
+    }
+}
+bool Matrix::operator<(double less)
+{
+    for (int i = 0; i < this->rows; i++)
+    {
+        for (int j = 0; j < this->columns; j++)
+        {
+            if (matrix[i][j] > less)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool Matrix::operator>(double greater)
+{
+    for (int i = 0; i < this->rows; i++)
+    {
+        for (int j = 0; j < this->columns; j++)
+        {
+            if (matrix[i][j] < greater)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}

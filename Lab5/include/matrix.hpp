@@ -38,6 +38,15 @@ public:
 
     Matrix operator+(Matrix m2);
     Matrix operator-(Matrix m2);
+    Matrix operator*(Matrix m2);
     double *operator[](int nr);
+    bool operator==(Matrix m2);
+    friend ostream &operator<<(ostream &out, Matrix m);
+    void operator++(int);
+    void operator++();
+    void operator--();
+    void operator--(int);
+    bool operator<(double less);
+    bool operator>(double greater);
 };
 #endif
