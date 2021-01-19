@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/kubab/OneDrive/Pulpit/JIPP2/Lab8/src/main.cpp
+pthread.h
+-
+unistd.h
+-
+cstdio
+-
+
